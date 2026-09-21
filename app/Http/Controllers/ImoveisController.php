@@ -30,9 +30,9 @@ class ImoveisController extends Controller
     public function store(Request $request)
     {
         if(Imoveis::create($request->all()))
-            return redirect()->route('/imoveis')->with('mensagem', 'Cadastro realizado com sucesso!');
+            return redirect()->route('imoveis.index')->with('mensagem', 'Cadastro realizado com sucesso!');
         else
-            return redirect()->route('/imoveis')->with('mensagem', 'Erro, cadastro não realizado!');
+            return redirect()->route('imoveis.index')->with('mensagem', 'Erro, cadastro não realizado!');
     }
 
     /**
@@ -41,7 +41,7 @@ class ImoveisController extends Controller
     public function show(string $id)
     {
         $imovel = Imoveis::findOrFail($id);
-        return view('imovel.show', compact('imoveis'));
+        return view('imovel.show', compact('imovel'));
     }
 
     /**
@@ -50,7 +50,7 @@ class ImoveisController extends Controller
     public function edit(string $id)
     {
         $imovel = Imoveis::findOrFail($id);
-        return view('imovel.edit', compact('imoveis'));
+        return view('imovel.edit', compact('imovel'));
     }
 
     /**
@@ -60,9 +60,9 @@ class ImoveisController extends Controller
     {
         $imovel = Imoveis::findOrFail($id);
         if($imovel->update($request->all()))
-            return redirect()->route('/imoveis')->with('mensagem', 'Imóvel alterado com sucesso!');
+            return redirect()->route('imoveis.index')->with('mensagem', 'Imóvel alterado com sucesso!');
         else
-            return redirect()->route('/imoveis')->with('mensagem', 'Erro ao alterar o imóvel!');
+            return redirect()->route('imoveis.index')->with('mensagem', 'Erro ao alterar o imóvel!');
     }
 
     /**
@@ -72,8 +72,8 @@ class ImoveisController extends Controller
     {
         $imovel = Imoveis::findOrFail($id);
         if($imovel->delete())
-            return redirect()->route('/imoveis')->with('mensagem', 'Imóvel exluído com sucesso!');
+            return redirect()->route('imoveis.index')->with('mensagem', 'Imóvel exluído com sucesso!');
         else
-            return redirect()->route('/imoveis')->with('mensagem', 'Erro ao excluir o imóvel!');
+            return redirect()->route('imoveis.index')->with('mensagem', 'Erro ao excluir o imóvel!');
     }
 }

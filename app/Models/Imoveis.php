@@ -9,6 +9,8 @@ class Imoveis extends Model
 {
     protected $table = "imoveis";
 
+    protected $primaryKey = 'idImoveis';
+
     public $incrementing = true;
 
     protected $fillable = ['tipo', 'finalidade', 'endereco', 'numero', 'complemento', 'bairro', 'cidade', 'uf', 'cep', 'descricao'];
