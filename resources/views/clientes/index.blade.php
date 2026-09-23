@@ -3,10 +3,10 @@
 @section('conteudo')
 
 @if(session('mensagem'))
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        {{ session('mensagem') }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-    </div>
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    {{ session('mensagem') }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+</div>
 @endif
 
 <div class="d-flex justify-content-between align-items-center mb-4">
@@ -48,54 +48,37 @@
             </thead>
 
             <tbody>
-
                 @foreach($clientes as $cliente)
+                <tr>
 
-                    <tr>
+                    <td> <strong>#{{ $cliente->idClientes }}</strong></td>
+                    <td>{{ $cliente->nome }}</td>
+                    <td> {{ $cliente->cpf }}</td>
+                    <td>{{ $cliente->telefone }}</td>
+                    <td>{{ $cliente->email }}</td>
+                    <td>{{ $cliente->data_nascimento }}</td>
 
-                        <td>
-                            <strong>#{{ $cliente->idClientes }}</strong>
-                        </td>
 
-                        <td>
-                            {{ $cliente->nome }}
-                        </td>
 
-                        <td>
-                            {{ $cliente->cpf }}
-                        </td>
+                    <td class="acoes">
 
-                        <td>
-                            {{ $cliente->telefone }}
-                        </td>
+                        <div class="d-flex gap-2">
 
-                        <td>
-                            {{ $cliente->email }}
-                        </td>
+                            <a href="{{ route('clientes.edit', $cliente->idClientes) }}"
+                                class="btn btn-sm btn-warning">
+                                Editar
+                            </a>
 
-                        <td>
-                            {{ $cliente->data_nascimento }}
-                        </td>
+                            <a href="{{ route('clientes.show', $cliente->idClientes) }}"
+                                class="btn btn-sm btn-info text-white">
+                                Consultar
+                            </a>
 
-                        <td class="acoes">
+                        </div>
 
-                            <div class="d-flex gap-2">
+                    </td>
 
-                                <a href="{{ route('clientes.edit', $cliente->idClientes) }}"
-                                   class="btn btn-sm btn-warning">
-                                    Editar
-                                </a>
-
-                                <a href="{{ route('clientes.show', $cliente->idClientes) }}"
-                                   class="btn btn-sm btn-info text-white">
-                                    Consultar
-                                </a>
-
-                            </div>
-
-                        </td>
-
-                    </tr>
+                </tr>
 
                 @endforeach
 
@@ -108,4 +91,3 @@
 </div>
 
 @endsection
-

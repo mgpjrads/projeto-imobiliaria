@@ -60,21 +60,13 @@
                         </td>
 
                         <td>{{ $i->finalidade }}</td>
-
                         <td>{{ $i->endereco }}</td>
-
                         <td>{{ $i->numero }}</td>
-
                         <td>{{ $i->complemento }}</td>
-
                         <td>{{ $i->bairro }}</td>
-
                         <td>{{ $i->cidade }}</td>
-
                         <td>{{ $i->uf }}</td>
-
                         <td>{{ $i->cep }}</td>
-
                         <td>{{ $i->descricao }}</td>
 
                         <td class="acoes">
